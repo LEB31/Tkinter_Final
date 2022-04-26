@@ -36,8 +36,8 @@ def new_canvas():
     choice()
 
 # icon 
-'''image_icon = PhotoImage(file=)
-win.iconphoto(False,image_icon)'''
+image_icon = PhotoImage(file='pen-solid.png')
+win.iconphoto(False,image_icon)
 
 # Colors
 color_box = PhotoImage(file="color_section.png")
@@ -53,34 +53,34 @@ def choice():
     id = colors.create_rectangle((10,40,30,60),fill="gray")
     colors.tag_bind(id, '<Button-1>',lambda x: show_color('gray'))
 
-    id = colors.create_rectangle((10,70,30,90),fill="brown4")
-    colors.tag_bind(id, '<Button-1>',lambda x: show_color('brown'))
+    id = colors.create_rectangle((10,70,30,90),fill="#A0522D")
+    colors.tag_bind(id, '<Button-1>',lambda x: show_color('#A0522D'))
 
-    id = colors.create_rectangle((10,100,30,120),fill="red")
-    colors.tag_bind(id, '<Button-1>',lambda x: show_color('red'))
+    id = colors.create_rectangle((10,100,30,120),fill="#CD5C5C")
+    colors.tag_bind(id, '<Button-1>',lambda x: show_color('#CD5C5C'))
 
-    id = colors.create_rectangle((10,130,30,150),fill="orange")
-    colors.tag_bind(id, '<Button-1>',lambda x: show_color('orange'))
+    id = colors.create_rectangle((10,130,30,150),fill="#FF7F50")
+    colors.tag_bind(id, '<Button-1>',lambda x: show_color('#FF7F50'))
 
-    id = colors.create_rectangle((10,160,30,180),fill="yellow")
-    colors.tag_bind(id, '<Button-1>',lambda x: show_color('yellow'))
+    id = colors.create_rectangle((10,160,30,180),fill="#EEF588")
+    colors.tag_bind(id, '<Button-1>',lambda x: show_color('#EEF588'))
 
-    id = colors.create_rectangle((10,190,30,210),fill="green")
-    colors.tag_bind(id, '<Button-1>',lambda x: show_color('green'))
+    id = colors.create_rectangle((10,190,30,210),fill="#98FB98")
+    colors.tag_bind(id, '<Button-1>',lambda x: show_color('#98FB98'))
 
-    id = colors.create_rectangle((10,220,30,240),fill="blue")
-    colors.tag_bind(id, '<Button-1>',lambda x: show_color('blue'))
+    id = colors.create_rectangle((10,220,30,240),fill="#87CEEB")
+    colors.tag_bind(id, '<Button-1>',lambda x: show_color('#87CEEB'))
 
-    id = colors.create_rectangle((10,250,30,270),fill="purple")
-    colors.tag_bind(id, '<Button-1>',lambda x: show_color('purple'))
+    id = colors.create_rectangle((10,250,30,270),fill="#9370DB")
+    colors.tag_bind(id, '<Button-1>',lambda x: show_color('#9370DB'))
 choice()
 
 # Eraser 
 eraser=PhotoImage(file="eraser.png")
 Button(win, image=eraser,bg="#f2f3f5",command=new_canvas).place(x=30,y=400)
 
-# Board
-canvas=Canvas(win,width=930,height=500,background="white",cursor="hand2")
+# Board  
+canvas=Canvas(win,width=930,height=500,background="white",cursor="tcross")
 canvas.place(x=100,y=10)
 canvas.bind('<Button-1>', locate_xy)
 canvas.bind('<B1-Motion>', addLine)
@@ -94,7 +94,7 @@ def get_current_value():
 def slider_changed(event):
     value_label.configure(text=get_current_value())
 
-slider = ttk.Scale(win,from_=0,to=10,orient='horizontal',command=slider_changed, variable=current_value)
+slider = ttk.Scale(win,from_=0,to=100,orient='horizontal',command=slider_changed, variable=current_value)
 slider.place(x=30,y=530)
 
 # Value Label
